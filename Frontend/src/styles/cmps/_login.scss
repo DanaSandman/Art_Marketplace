@@ -1,0 +1,38 @@
+.login {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  margin-left: 10%;
+  grid-gap: 10px;
+}
+
+.login-form {
+  width: 300px;
+}
+
+.login form {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.login-form form section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 5px;
+  align-items: center;
+}
+
+.login-form form div {
+  width: 270px;
+}
+
+.login-form .form-btns {
+  padding: 10px 0 10px 0;
+  width: fit-content;
+}
+
+.login a {
+  width: fit-content;
+}

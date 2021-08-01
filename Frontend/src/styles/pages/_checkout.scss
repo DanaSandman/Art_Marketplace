@@ -1,0 +1,34 @@
+.check-out-container {
+    display: grid;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+   /* grid-template-columns:
+        minmax(2rem, 1fr)
+        minmax(auto, $normal-breakpoint)
+        minmax(2rem, 1fr);
+    grid-template-rows: 1fr 1fr 3fr 1fr;*/
+}
+.check-out-container form {
+    display: grid;
+    grid-gap: 10px;
+    width: 100%;
+    grid-template-areas:
+      'iup ti'
+      'iup di'
+      'iup ci'
+      'iup mi'
+      'iup tqi'
+      'iup si'
+      'iup cli'
+      'iup szi'
+      'iup pri';
+    justify-content: normal;
+    outline: double;
+    padding: inherit;
+  }
+  
+  
+
+  

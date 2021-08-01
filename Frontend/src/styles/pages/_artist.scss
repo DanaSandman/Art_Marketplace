@@ -1,0 +1,84 @@
+.main-artist{
+    margin: 0 7rem 1rem 7rem;
+    p{ 
+        text-align: start;
+        margin-bottom: 1.5rem;
+    }
+}
+.contianer-hero{
+    img{
+        filter: brightness(0.6);
+        max-height: 40.625rem;
+        object-fit: cover;
+        width: 100%;
+    }
+    position:relative;
+    margin-bottom: 2rem;
+}
+.artist-hero-title{
+    color: $clr6;
+    text-shadow: -1px -1px 3px $clr1;
+    text-transform: uppercase;
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    *{
+        font-family: neuzeit;
+        text-align: center;
+    }
+    h1{
+        font-size: 55px;
+    }
+
+}
+.artist-details{
+    margin-bottom: 4rem;
+    img{
+        max-width: 40%;
+        max-height: 21.875rem;
+        margin: 0 3.125rem 0 1.25rem;
+        object-fit: contain;
+    }
+    .text-description{
+        width: 56.25rem;
+        margin-top: 1.5rem;
+    }
+ 
+}
+
+@media (min-width: $mobile-breakpoint) {
+    .artist-hero-title {
+        top: 30%;
+        left: 20%;
+        h1 {
+            font-size: 36px;
+        }
+        p{
+            font-size: 20px;
+        }
+    }
+}
+
+@media (min-width: $narrow-breakpoint) {
+    .artist-hero-title {
+        h1 {
+            font-size: 45px;
+        }
+        p{
+            font-size: 28px;
+        }
+    }
+}
+
+@media (min-width: $normal-breakpoint) {
+    .artist-hero-title {
+        top: 30%;
+        left: 35%;
+        h1 {
+            font-size: 55px;
+        }
+        p{
+            font-size: 36px;
+        }
+    }
+}

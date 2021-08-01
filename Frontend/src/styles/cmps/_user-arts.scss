@@ -1,0 +1,136 @@
+.user-arts {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-gap: 20px;
+  padding: 0 20px 0 10px;
+}
+
+.user-arts .header {
+  display: grid;
+  width: 100%;
+  height: fit-content;
+  grid-template-columns: auto 1fr;
+  justify-content: start;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.user-arts .header a {
+  width: fit-content;
+}
+.user-arts h3 {
+  margin: 0;
+}
+
+.user-arts .content {
+  width: 100%;
+  max-width: 70vw;
+  overflow-x: auto;
+}
+
+.user-arts .content ul {
+  width: 100%;
+  list-style-type: none;
+  padding: 10px;
+  border: black solid 2px;
+}
+
+.user-arts .content > ul > li {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  justify-content: unset !important;
+}
+
+.user-arts .item-collapsible {
+  width: 100%;
+}
+
+.user-arts section.item-btns {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+
+.user-arts section.item-btns a {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.user-arts table {
+  width: 100%;
+  margin: 0;
+}
+
+.user-arts table th,
+.user-arts table td {
+  font-family: neuzeit !important;
+}
+
+.user-arts table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+}
+
+.user-arts table a,
+.user-arts table button {
+  justify-self: center;
+}
+
+.user-arts .item-expand-btn {
+  justify-self: end;
+}
+
+.user-arts .item-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  background-color: $clr5;
+}
+
+.user-arts .item-name {
+  padding: 10px;
+}
+
+.user-arts .art-img {
+  width: 100%;
+  height: auto;
+  border: none;
+  max-width: 60px;
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .user-arts {
+    max-width: 500px;
+  }
+
+  .user-arts table {
+    max-width: 500px;
+  }
+
+  .user-arts .content {
+    max-width: unset;
+  }
+
+  .user-arts table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    width: 100%;
+  }
+
+  .user-arts table td {
+    display: grid;
+    width: 100%;
+    display: block;
+  }
+}

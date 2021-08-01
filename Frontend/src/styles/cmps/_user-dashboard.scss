@@ -1,0 +1,51 @@
+.user-dashboard {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: auto 1fr;
+  grid-gap: 20px;
+  -webkit-text-stroke: thin;
+}
+
+.tabs {
+  width: 40%;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.tabs ul.desktop-view {
+  list-style-type: none;
+  width: fit-content;
+}
+
+.tabs .desktop-view li {
+  padding: 8px;
+}
+
+.tabs .mobile-view > div {
+  width: 100%;
+}
+
+.tabs .active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.tabs li:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.tab-container {
+  width: 100%;
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .user-dashboard {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+  }
+  .tabs {
+    width: 100%;
+  }
+}

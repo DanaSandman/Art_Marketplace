@@ -1,0 +1,164 @@
+.modal {
+  background-color: $clr7;
+  color: black;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 'auto 1fr 1fr';
+  padding: 10px;
+}
+.modal-content {
+  justify-self: center;
+  width: 80%;
+}
+
+.search-input {
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  outline: none;
+}
+.quick-search-links {
+  align-self: center;
+  font-size: 3rem;
+  font-family: goldenbook;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.8; 
+}
+.art-img-search{
+  width: 100%;
+  height: auto;
+  border: none;
+  max-width: 4.375rem;
+}
+
+.search-table {
+ 
+  grid-gap: 20px;
+  padding: 0 20px 0 10px;
+}
+.search-table{
+//   display: grid;
+  width: 100%;
+  height: fit-content;
+//   grid-template-columns: auto 1fr;
+//   justify-content: center;
+//   grid-gap: 20px;
+//   align-items: center;
+}
+.search-table .content {
+  width: 100%;
+  max-width: 70vw;
+  overflow-x: auto;
+}
+.search-table .content ul {
+  width: 100%;
+  list-style-type: none;
+  padding: 10px;
+  border: black solid 2px;
+}
+.search-table .content > ul > li {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  justify-content: unset !important;
+}
+.search-table .item-collapsible {
+  width: 100%;
+}
+.search-table section.item-btns {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+.search-table section.item-btns a {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.search-table table {
+  width: 100%;
+  margin: 0;
+}
+.search-table table th,
+.search-table table td {
+  font-family: neuzeit !important;
+}
+.search-table table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+}
+.search-table table a,
+.search-table table button {
+  justify-self: center;
+}
+.search-table .item-expand-btn {
+  justify-self: end;
+}
+.search-table .item-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  background-color: $clr5;
+}
+.search-table .item-name {
+  padding: 10px;
+}
+.search-table .art-img {
+  width: 100%;
+  height: auto;
+  border: none;
+  max-width: 60px;
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .search-table {
+    max-width: 500px;
+  }
+
+  .search-table table {
+    max-width: 500px;
+  }
+
+  .search-table .content {
+    max-width: unset;
+  }
+
+  .search-table table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    width: 100%;
+  }
+
+  .search-table table td {
+    display: grid;
+    width: 100%;
+    display: block;
+  }
+}
+  .art-img{
+    width: 9rem;
+  }
+  .item-header {
+    padding: 2%;
+    align-items: center;
+    width: 100%;
+    background-color: #f6f6f6;
+}
+.MuiListItem-root{
+  flex-direction: column;
+}
+h4{
+  text-align: center;
+  margin: 20px;
+}
