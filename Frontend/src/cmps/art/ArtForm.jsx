@@ -28,14 +28,19 @@ export class ArtForm extends React.Component {
     if (selectedArt) {
       // Edit mode - check if curr user is the artist
       if (user && selectedArt.artist._id === user._id) {
+        console.log('user',user);
+        console.log('selectedArt',selectedArt);
+
         this.setState({ art: selectedArt });
         this.setState({ isEditMode: true });
       } else history.push('/account');
     } else {
       // Add mode - check if a user is logged in
       if (user) {
-        const { _id, fullName, imgUrl } = user;
-        const currUserArtist = { _id, fullName, imgUrl };
+        console.log('user',user);
+        const { _id, fullname, imgUrl } = user;
+        const currUserArtist = { _id, fullname , imgUrl };
+        console.log('currUserArtist',currUserArtist);
         this.setState((prevState) => {
           return {
             art: {

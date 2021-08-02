@@ -28,6 +28,7 @@ export function removeArt(artId) {
 }
 //CREATE/UPDATE
 export function saveArt(art) {
+    console.log('action art',art);
     return async dispatch => {
         try {
             const arts = await artService.save(art);

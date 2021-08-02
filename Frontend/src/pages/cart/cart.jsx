@@ -46,8 +46,6 @@ export function Cart() {
     return items.reduce((sum, item) => sum + item.price, 0);
   }
 
-  
-
   return (
 
     <TableContainer component={Paper}>

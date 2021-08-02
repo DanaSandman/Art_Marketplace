@@ -68,8 +68,8 @@ class _ArtDetails extends React.Component {
     //   console.log('filterBy',filterBy);
     //   this.props.loadArts(filterBy);
   }
-
   handleChange = (ev) => {
+    window.scrollTo(0, 0)
     const frameOption = ev.target.value;
     this.setState({ frame: frameOption });
   };

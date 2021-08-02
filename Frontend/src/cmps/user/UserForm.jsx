@@ -27,14 +27,22 @@ const ArtistSwitch = withStyles({
 
 export class UserForm extends Component {
   state = {
-    email: '',
     fullname: '',
+    email: '',
     password: '',
+    iaAdmin: false,
     isArtist: false,
-    isValidInput: false,
+    // specializes: 'Drawing & Prints',
+    specializes: '',
+    info: '',
     imgUrl: '',
+    // imgHero: '//cdn.shopify.com/s/files/1/0941/7736/collections/61eafd5324e8ce97a03737646603742d_1728x.jpg?v=1620253953',
+    imgHero: '',
+    // decription: 'is a visual artist based in London, UK. Playfully addressing scale, form and color, his pieces are both ambiguous and approachable. Inspired by geometric abstraction of the 1980s, Wall’s work exists to mirror contemporary society through conformity, preconceptions and individualism. Through themes of familiarity and hierarchy, his practice explores the everyday commonalities that connect us all, most recently the relationships we hold with society’s most ubiquitous materials',
+    decription:'',
     orders: [],
     isTooltipOpen: false,
+    isValidInput: false,
   };
 
   componentDidMount() {
@@ -42,9 +50,9 @@ export class UserForm extends Component {
       // Edit mode
       const { email, fullname, password, isArtist, imgUrl, orders } =
         this.props.user;
-      this.setState({
-        email,
+        this.setState({
         fullname,
+        email,
         password,
         isArtist,
         isValidInput: true,
@@ -74,15 +82,14 @@ export class UserForm extends Component {
     const { email, fullname, password, isArtist, imgUrl, orders } = this.state;
     // TODO: validate email & password
     const userInfo = {
-      email,
       fullname,
+      email,
       password,
       isArtist,
       imgUrl,
       orders,
     };
 
-  
     if (this.props.user) {
       // Edit 
       userInfo._id = this.props.user._id;
@@ -111,12 +118,17 @@ export class UserForm extends Component {
 
   render() {
     const {
-      email,
       fullname,
+      email,
       password,
+      iaAdmin,
       isArtist,
-      isValidInput,
+      specializes,
+      info,
       imgUrl,
+      imgHero,
+      decription,
+      isValidInput,
       isTooltipOpen,
     } = this.state;
     const { cancel, editModeOff } = this.props;
