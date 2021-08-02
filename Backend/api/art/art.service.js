@@ -50,7 +50,6 @@ async function remove(artId) {
 //ADD/EDIT
 async function save(art) {
     console.log('service server art to edit or add', art);
-
     try {
         if (art._id) {
             console.log('service server art to edit or add idd', art._id);

@@ -82,11 +82,9 @@ async function login(req, res){
 async function signup(req, res) {
     console.log('controller signuppppppp');
     console.log('req.body',req.body);
-
     try {
      // user.byUserId = req.session.user._id
-       const user = await userService.save(req.body)
-        
+       const user = await userService.save(req.body)       
         // prepare the updated toy for sending out
         // toy.byUser = await userService.getById(toy.byUserId)
         // toy.aboutUser = await userService.getById(toy.aboutUserId)
@@ -95,7 +93,6 @@ async function signup(req, res) {
         // socketService.broadcast({type: 'toy-added', data: toy})
         // socketService.emitToAll({type: 'user-updated', data: toy.byUser, room: req.session.user._id})
         res.send(user)
-
     } catch (err) {
         console.log(err)
         // logger.error('Failed to add toy', err)

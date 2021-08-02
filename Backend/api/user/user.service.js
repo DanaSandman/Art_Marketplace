@@ -88,7 +88,7 @@ if(user._id){
         const userToAdd = user;
         userToAdd._id = util.makeId()
         userToAdd.imgHero = '//cdn.shopify.com/s/files/1/0941/7736/collections/61eafd5324e8ce97a03737646603742d_1728x.jpg?v=1620253953'
-        userToAdd.decription = 'is a visual artist based in London, UK. Playfully addressing scale, form and color, his pieces are both ambiguous and approachable. Inspired by geometric abstraction of the 1980s, Wall’s work exists to mirror contemporary society through conformity, preconceptions and individualism. Through themes of familiarity and hierarchy, his practice explores the everyday commonalities that connect us all, most recently the relationships we hold with society’s most ubiquitous materials'
+        userToAdd.description = 'is a visual artist based in London, UK. Playfully addressing scale, form and color, his pieces are both ambiguous and approachable. Inspired by geometric abstraction of the 1980s, Wall’s work exists to mirror contemporary society through conformity, preconceptions and individualism. Through themes of familiarity and hierarchy, his practice explores the everyday commonalities that connect us all, most recently the relationships we hold with society’s most ubiquitous materials'
         const collection = await dbService.getCollection('user')
         await collection.insertOne(user)
         const users = await query();
@@ -98,7 +98,7 @@ if(user._id){
             throw err
     }
 }
-function _buildCriteria(filterBy) {
+function _buildCriteria(filterBy){
     const criteria = {}
     // if (filterBy.txt) {
     //     const txtCriteria = { $regex: filterBy.txt, $options: 'i' }

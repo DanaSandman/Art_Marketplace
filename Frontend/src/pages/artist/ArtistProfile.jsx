@@ -32,13 +32,13 @@ state={
 }
 findArtistUser=()=>{
   const user = this.props.users.find((user)=> user._id === this.props.artist._id)
-  console.log(('user',user));
+  console.log(('artist profile user',user));
   return user
 }
     render(){
         const { artist } = this.props;
         const userArtist = this.findArtistUser()
-        
+        console.log('userArtist',userArtist);
         return(
           <Fragment>
           <div className="contianer-hero">
