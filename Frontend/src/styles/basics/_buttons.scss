@@ -16,6 +16,14 @@ button {
   padding: 5px;
   font-size: medium;
 }
+.btn-add-to-wishlist{
+  background-color: $clr6;
+  color: $clr1;
+  width: 100%;
+  height: rem(50px);
+  padding: 5px;
+  font-size: medium;
+}
 
 .add-art-page button {
   width: fit-content;

@@ -82,7 +82,7 @@ class _ArtCart extends React.Component {
     const { user } = this.props;
     console.log('cart', cart);
     return (
-      <section className="shoppingCart">
+      <section className="shoppingCart flex column">
 
         <h1 className="cart-title">Shopping cart</h1>
 
@@ -105,16 +105,19 @@ class _ArtCart extends React.Component {
                       <img src={item.imgUrl} alt={item.title} className="cart-item-img" />
                     </TableCell>
                     <TableCell className="item-details">
-                      <span className="item-title
-                    ">{item.title}</span>
+                      <p className="flex column">
+                      <span className="item-title">{item.title}</span>
                       <span className="item-style">{`By ${item.artist.fullname}`}</span>
-                      {/* <span>Size: {item.size.width}X{item.size.height}</span> */}
+                      <span>Size: {item.size.width}X{item.size.height}</span>
+                      </p>
                     </TableCell>
                     <TableCell>${item.price} </TableCell>
                     <TableCell>
+                      <p className="flex">
                       <button className="dec-btn" onClick={this.onDecrease}>-</button>
                       <span className="quantity" >{quantity}</span>
                       <button className="inc-btn" onClick={this.onIncrease}>+</button>
+                      </p>
                     </TableCell>
                     <TableCell>${item.price * quantity} </TableCell>
                     <TableCell>
@@ -147,6 +150,7 @@ class _ArtCart extends React.Component {
            {/* <button onClick={this.onCheckOut}> Check out</button>*/}
           </div>
         </div>
+
       </section>
     );
 

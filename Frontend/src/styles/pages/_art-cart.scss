@@ -1,13 +1,13 @@
 .shoppingCart {
     display: grid;
     //font-size: small;
-    height: 70vh;
+    // height: 70vh;
     text-align: center;
     grid-template-columns:
         minmax(2rem, 1fr)
         minmax(auto, $normal-breakpoint)
         minmax(2rem, 1fr);
-    grid-template-rows: 15% 10% 60% 15%;
+        grid-template-rows: 50px 10% 90% 15%;
     .cart-title {
         grid-area: 1/2/3/3;
         margin-top: 10px;
@@ -22,9 +22,15 @@
     }
     .MuiTableCell-body {
         text-align: center;
+        .quantity{
+            padding: 8px;
+        }
         &.item-details {
             display: flex;
             flex-direction: column;
+            p{
+                padding: 16px;
+            }
         }
     }
     .item-style {
@@ -49,10 +55,12 @@ textarea {
 }
 .cart-actions {
     display: flex;
-    margin-top: rem(20px);
-    grid-area: 4/2/4/3;
+    grid-area: 4/2/-3/3;
     align-items: flex-end;    
     justify-content: space-between;
+    margin-top: rem(20px);
+    margin-left: 1.25rem;
+
     button{
         height: 50px;
     }

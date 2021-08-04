@@ -8,7 +8,6 @@ export const cartService = {
     query,
     remove,
     add,
-
 };
 
 async function query() {
@@ -17,7 +16,6 @@ async function query() {
     console.log(data);
     return data
 }
-
 async function remove(itemId) {
     console.log('remove service - ', itemId);
     const cart = await storageService.remove(STORAGE_KEY, itemId)

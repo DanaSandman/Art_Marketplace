@@ -6,7 +6,6 @@ export const wishlistService = {
     query,
     remove,
     add,
-
 };
 
 async function query() {
@@ -17,6 +16,8 @@ async function remove(itemId) {
    return wishlist
 }
 async function add(item) {
+    if(item._id){
     const wishlist = await storageService.post(STORAGE_KEY, item)
     return wishlist
+    }
 }

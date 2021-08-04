@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import { setArt, loadArts } from "../../store/art/art.action.js";
 import { Loader } from "../../cmps/util/Loader.jsx";
 import { ArtList } from "../../cmps/art/ArtList.jsx";
-import { PurchaseModal } from "../../cmps/art/PurchaseModal.jsx";
-import { WishListModal } from "../../cmps/art/WishlistModal.jsx"
+// import { PurchaseModal } from "../../cmps/art/PurchaseModal.jsx";
+// import { WishListModal } from "../../cmps/art/WishlistModal.jsx"
+
 import { LongTxt } from "../../cmps/util/LongTxt.jsx"
 import { saveCartItem } from "../../store/cart/cart.action.js";
 import { saveWishItem } from "../../store/wishlist/wishlist.action.js"
 import {SideCart} from "../../cmps/cart/SideCart.jsx"
+import {SideCartWishList} from "../../cmps/cart/SideCartWishList.jsx"
+
 class _ArtDetails extends React.Component {
 
   state = {
@@ -183,10 +186,11 @@ class _ArtDetails extends React.Component {
                     saveCartItem={saveCartItem}
                     loggedInUser={loggedInUser}
                   /> */}
-                  <WishListModal 
+                <SideCartWishList addedItem = {selectedArt}/>
+                  {/* <WishListModal 
                   selectedArt={selectedArt}
                   saveWishItem={saveWishItem}
-                   />
+                   /> */}
                 </div>
                 <br />
                 <p>DESCRIPTION</p>

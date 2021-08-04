@@ -1,5 +1,3 @@
-import { utilService } from "../utilService";
-
 export const storageService = {
   query,
   get,
@@ -11,7 +9,6 @@ export const storageService = {
 //READ LIST
 async function query(entityType) {
   let entities = await JSON.parse(localStorage.getItem(entityType)) || [];
-
   return entities;
 }
 //DETAILS FIND ONE BY ID

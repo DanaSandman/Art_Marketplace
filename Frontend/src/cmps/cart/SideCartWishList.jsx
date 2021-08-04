@@ -10,8 +10,8 @@ import { makeStyles,
         ListItemSecondaryAction,
         IconButton,} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {cartService} from '../../services/cart/cart.service.js'
 import { Link } from 'react-router-dom';
+import { wishlistService } from '../../services/wishlist/wishlist.service.js';
 
 const useStyles = makeStyles({
   list: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   }
 });
 
-export function SideCart(addedItem) {
+export function SideCartWishList(addedItem) {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [items, setItemes] = React.useState([]);
@@ -37,23 +37,23 @@ export function SideCart(addedItem) {
       return;
     }
     setDrawerOpen(open);
-  };
+};
 
   const addToCart = async () => {
     console.log('add to cart');
-    await cartService.add(addedItem.addedItem)
+    await wishlistService.add(addedItem.addedItem)
     console.log('moshe');
-
-    setItemes(await cartService.query())
+    
+    setItemes(await wishlistService.query())
   
     setDrawerOpen(true)
     
-  };
+};
 
   const removeFromCart = async () => {
       console.log('a102');
-      setItemes(await cartService.remove('a102'))
-  };
+      setItemes(await wishlistService.remove('a102'))
+};
 
   const list = (anchor) => (
     <div
@@ -79,23 +79,17 @@ export function SideCart(addedItem) {
       </List>
       <Divider />
     </div>
-  );
-
-  const total = () => {
-    return items.reduce((tot, item) => tot + item.price,0)
-  };
+);
 
   return (
     <div>
-      <button className="btn-add-to-bag" type="button" onClick={addToCart}>
-               Add To Bag
+      <button className="btn-add-to-wishlist" type="button" onClick={addToCart}>
+                ♡ WISHLIST
       </button>
         <React.Fragment key={'right'}>
-          {/* <Button onClick={addToCart} className="btn-add-to-bag"> Add To Bag </Button> */}
           <Drawer anchor={'right'} open={drawerOpen} onClose={toggleDrawer(false)}>
-            {list('right')}
-            {`Total - $${total()}`}
-            <button><Link to={`/cart`}>VIEW CART</Link></button>
+            {list('right')} 
+            <button><Link to={`/wishlist`}>VIEW WISHLIST</Link></button>
             <Link to={`/art`}> continue shopping</Link>
           </Drawer>
         </React.Fragment>
