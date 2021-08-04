@@ -12,7 +12,10 @@ export const cartService = {
 };
 
 async function query() {
-    return await storageService.query(STORAGE_KEY);
+    console.log('fffff');
+    const data = await storageService.query(STORAGE_KEY);
+    console.log(data);
+    return data
 }
 
 async function remove(itemId) {
@@ -21,6 +24,9 @@ async function remove(itemId) {
     return cart
 }
 async function add(item) {
-    const cart = await storageService.post(STORAGE_KEY, item)
-    return cart
+    console.log('item', item);
+    if(item._id){
+        const cart = await storageService.post(STORAGE_KEY, item)
+        return cart
+    }
 }

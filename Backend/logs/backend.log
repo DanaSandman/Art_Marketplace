@@ -9,3 +9,12 @@
 8/3/2021, 6:16:32 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
 8/3/2021, 6:17:29 PM - INFO - Server is running on port: 3030 
 8/3/2021, 6:18:03 PM - INFO - Server is running on port: 3030 
+8/4/2021, 1:15:00 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/4/2021, 1:15:03 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/4/2021, 1:15:05 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/4/2021, 1:15:23 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/4/2021, 1:20:13 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/4/2021, 1:48:56 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/4/2021, 2:19:18 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/4/2021, 2:20:27 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/4/2021, 2:21:02 PM - ERROR - Failed to get users | ReferenceError: users is not defined 

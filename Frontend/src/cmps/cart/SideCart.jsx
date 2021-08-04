@@ -47,7 +47,8 @@ export function SideCart(addedItem) {
 
     console.log('add to cart');
     await cartService.add(addedItem.addedItem)
-  
+    console.log('moshe');
+    
     setItemes(await cartService.query())
   
     setDrawerOpen(true)
