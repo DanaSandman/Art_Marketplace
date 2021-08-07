@@ -10,7 +10,6 @@ export class _ArtByCategory extends React.Component {
     const category = this.props.match.params;
     loadArts(category);
   }
-
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params !== nextProps.match.params) {
       this.props.loadArts(nextProps.match.params);
@@ -20,7 +19,7 @@ export class _ArtByCategory extends React.Component {
   render() {
     return (
       <Fragment>
-        <h1>By Category</h1>
+        <h1>By Category - {this.props.arts[0].category} </h1>
         <ArtList arts={this.props.arts} />
       </Fragment>
     );

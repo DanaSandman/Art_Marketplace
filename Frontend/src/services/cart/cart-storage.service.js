@@ -19,6 +19,7 @@ async function get(entityType, entityId) {
 //ADD
 async function post(entityType, newEntity) {
   // newEntity._id = utilService.makeId();
+  console.log(newEntity,'newEntity');
   const entities = await query(entityType);
   entities.unshift(newEntity);
   _save(entityType, entities);

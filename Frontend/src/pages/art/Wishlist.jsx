@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { wishlistService } from '../../services/wishlist/wishlist.service.js'
+import { cartService } from "../../services/cart/cart.service.js";
 import { removeWishItem } from '../../store/wishlist/wishlist.action.js'
 import {
   Table,
@@ -56,6 +57,17 @@ class _WishList extends React.Component {
     this.setState({ quantity })
   }
 
+  onAddAllToBag = async () => {
+    console.log(this.state.cart); 
+    
+      this.state.cart.map((item) => {
+      cartService.add(item)
+       console.log(item);
+    // setItemes(await cartService.query())
+  }
+    )
+  }
+  
 //   onCheckOut = () => {
 //     const { cart } = this.state
 //     const { user, users, updateUser } = this.props;
@@ -81,7 +93,7 @@ class _WishList extends React.Component {
     return (
       <section className="shoppingCart flex column">
 
-        <h1 className="cart-title">Shopping cart</h1>
+        <h1 className="cart-title">Wishlist</h1>
 
         {
           <div className="cart-list">
@@ -125,18 +137,15 @@ class _WishList extends React.Component {
 
         <div className="cart-actions">
           <div className="btn flex">
-            <button><Link to={`/art`}> Continue shopping</Link></button>
+            <button><Link to={`/art`}>Continue shopping</Link></button>
             {/* <CheckoutModal  onCheckOut={this.onCheckOut}/> */}
-           <button> Add All To Bug </button> 
+           <button onClick={this.onAddAllToBag}><Link to={`/cart`}>Add All To Bag</Link></button> 
           </div>
         </div>
-
       </section>
     );
-
   }
 }
-
 
 function mapStateToProps({ userModule }) {
   return {

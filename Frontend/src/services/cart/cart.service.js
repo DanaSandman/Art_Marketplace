@@ -22,8 +22,9 @@ async function remove(itemId) {
     return cart
 }
 async function add(item) {
-    console.log('item', item);
+    // console.log('item', item);
     if(item._id){
+        console.log('item', item);
         const cart = await storageService.post(STORAGE_KEY, item)
         return cart
     }
