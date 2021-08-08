@@ -16,7 +16,7 @@ class _SearchModal extends Component {
     isMobileView: true,
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     // check if desktop or mobile
     this.setResponsiveness();
     window.addEventListener('resize', () => this.setResponsiveness());

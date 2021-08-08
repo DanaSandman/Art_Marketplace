@@ -165,8 +165,7 @@ class _ArtCart extends React.Component {
           </div>
         </div>
       </section>
-    );
-  }
+    )}
 }
 
 function mapStateToProps({ userModule }) {

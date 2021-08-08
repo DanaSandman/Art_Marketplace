@@ -8,7 +8,7 @@ import { Account } from "./pages/user/Account.jsx";
 import { ArtCart } from "./pages/art/ArtCart.jsx";
 import { Checkout } from "./pages/art/Checkout.jsx";
 import { ArtistProfile } from "./pages/artist/ArtistProfile.jsx";
-import { WishList } from "./pages/art/WishList.jsx";
+import { Wishlist } from "./pages/art/Wishlist.jsx";
 import { ArtByCategory } from "./pages/art/ArtByCategory.jsx";
 
 export const routes = [
@@ -57,7 +57,7 @@ export const routes = [
     component: Account,
   },
   {
-    path: "/wishList",
-    component: WishList,
+    path: "/wishlist",
+    component: Wishlist,
   },
 ];

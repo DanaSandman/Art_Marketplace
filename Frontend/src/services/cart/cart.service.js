@@ -8,6 +8,7 @@ export const cartService = {
     query,
     remove,
     add,
+    addMany
 };
 
 async function query() {
@@ -22,10 +23,14 @@ async function remove(itemId) {
     return cart
 }
 async function add(item) {
-    // console.log('item', item);
     if(item._id){
         console.log('item', item);
         const cart = await storageService.post(STORAGE_KEY, item)
         return cart
     }
 }
+async function addMany(items) {
+        const cart = await storageService.postMany(STORAGE_KEY, items)
+        return cart
+    }
+
