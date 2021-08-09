@@ -54,7 +54,7 @@ class _ArtCart extends React.Component {
     quantity++;
     this.setState({ quantity });
   };
-
+  
   onCheckOut = () => {
     const { cart } = this.state;
     const { user, users, updateUser } = this.props;

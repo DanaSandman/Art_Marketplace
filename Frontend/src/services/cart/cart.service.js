@@ -1,36 +1,32 @@
-import {
-    storageService
-} from './cart-storage.service.js';
+import { storageService } from "./cart-storage.service.js";
 
-const STORAGE_KEY = 'shoppingCart';
+const STORAGE_KEY = "shoppingCart";
 
 export const cartService = {
-    query,
-    remove,
-    add,
-    addMany
+  query,
+  remove,
+  add,
+  addMany,
 };
-
+//READ LIST
 async function query() {
-    console.log('fffff');
-    const data = await storageService.query(STORAGE_KEY);
-    console.log(data);
-    return data
+  const data = await storageService.query(STORAGE_KEY);
+  return data;
 }
+//DELETE
 async function remove(itemId) {
-    console.log('remove service - ', itemId);
-    const cart = await storageService.remove(STORAGE_KEY, itemId)
-    return cart
+  const cart = await storageService.remove(STORAGE_KEY, itemId);
+  return cart;
 }
+//ADD
 async function add(item) {
-    if(item._id){
-        console.log('item', item);
-        const cart = await storageService.post(STORAGE_KEY, item)
-        return cart
-    }
+  if (item._id) {
+    const cart = await storageService.post(STORAGE_KEY, item);
+    return cart;
+  }
 }
+//ADD FROM WISHLIST
 async function addMany(items) {
-        const cart = await storageService.postMany(STORAGE_KEY, items)
-        return cart
-    }
-
+  const cart = await storageService.postMany(STORAGE_KEY, items);
+  return cart;
+}
