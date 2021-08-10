@@ -28,7 +28,8 @@ class _ArtCart extends React.Component {
     this.initialQuantity(this.state.cart)
   }
   onRemoveItem = async (itemId) => {
-    const { cart } = this.state;
+    console.log('itemId',itemId);
+    let { cart } = this.state;
     cart = await cartService.remove(itemId);
     this.setState({ cart });
   };
@@ -62,46 +63,40 @@ class _ArtCart extends React.Component {
   };
   onCheckOut = async () => {
     const { cart } = this.state;
-    // await userService.updateUser(cart);
     await this.props.loadUsers()
-    const { loggedInUser , users, updateUser,} = this.props;
+    const {users, updateUser,} = this.props;
     console.log('users',users);
 
-    //לשנות לidx
-    const artId = cart[0]._id;
-    console.log('artId',artId);
-    const artistId = cart[0].artist._id;
-    console.log('artistId',artistId);
-    const quantity = cart[0].quantity
-    console.log('quantity',quantity);
+    let artId = ''
+    let artistId = ''
+    let quantity = 0
+    let artist = {}
 
+    cart.forEach((item, idx) => {
+      artId = cart[idx]._id;
+      console.log('artId',artId);
+      
+      artistId = cart[idx].artist._id;
+      console.log('artistId',artistId);
+      
+      quantity = cart[idx].quantity
+      console.log('quantity',quantity);
+      
+      artist = users.find((user) => user._id === artistId);
+      console.log('artist',artist);
 
-    // const artist = users.find((user) => user._id === artistId);
-    let artist =  users.find( (user) => {
-      // console.log('user._id', user._id )
-      // console.log('artistId',artistId);
-      return user._id === artistId
-    });
-    console.log('artist',artist);
-
-
-    // // const buyerId = loggedInUser._id;
-    artist.orders.push({
-      // buyerId,
-      quantity,
-      artId
-    });
-
-    console.log('artist updated orders',artist.orders);
-    updateUser(artist);
-
-    // localStorage.setItem("shoppingCart", []);
-    // this.setState({ cart: [] });
-    // //localStorage.removeItem('shoppingCart');
-  };
-
-  addToOrders = () => {
-
+      // // const buyerId = loggedInUser._id;
+      artist.orders.push({
+        // buyerId,
+        quantity,
+        artId
+      });
+      console.log('artist updated orders',artist.orders);
+      updateUser(artist);
+    }
+    );
+    localStorage.removeItem("shoppingCart");
+    this.setState({ cart: [] });
   };
 
   total = () => {
@@ -198,7 +193,6 @@ class _ArtCart extends React.Component {
 
 function mapStateToProps({ userModule }) {
   return {
-    loggedInUser: userModule.loggedInUser,
     users: userModule.users,
   };
 }
