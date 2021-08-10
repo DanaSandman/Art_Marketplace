@@ -40,7 +40,11 @@ export class UserDashboard extends Component {
     const arts = [];
     await this.props.userOrders.forEach(async (order) => {
       const art = await artService.getById(order.artId);
-      arts.push(art);
+      
+      arts.push({
+        art,
+        quantity: order.quantity,
+      });
     });
     this.setState({ arts });
   };

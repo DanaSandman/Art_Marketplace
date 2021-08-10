@@ -6,7 +6,6 @@ import { loadUsers } from "../../store/user/user.action.js";
 
 class _ArtApp extends React.Component {
 
-
   componentDidMount() {
     this.props.loadArts();
     this.props.loadUsers();

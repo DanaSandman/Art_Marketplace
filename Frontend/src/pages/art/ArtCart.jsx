@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { cartService } from "../../services/cart/cart.service.js";
-import { removeCartItem } from "../../store/cart/cart.action.js";
 import {
   Table,
   TableRow,
@@ -12,79 +11,110 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { EmptyState } from "../../cmps/util/EmptyState.jsx";
-import { updateUser } from "../../store/user/user.action.js";
+// import { removeCartItem } from "../../store/cart/cart.action.js";
+import { updateUser, loadUsers } from "../../store/user/user.action.js";
 import { CheckoutModal } from "../../cmps/art/CheckoutModal.jsx";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 class _ArtCart extends React.Component {
   state = {
     cart: [],
-    // note: "",
-    quantity: 1,
+    note: "",
   };
 
   async componentDidMount() {
     const cart = await cartService.query();
-    this.setState({ cart }, console.log("cart in artcart", this.state.cart));
+    this.setState({ cart });
+    this.initialQuantity(this.state.cart)
   }
-
   onRemoveItem = async (itemId) => {
-    let { cart } = this.state;
+    const { cart } = this.state;
     cart = await cartService.remove(itemId);
     this.setState({ cart });
   };
-
-  // handleChange = ({ target }) => {
-  //   const value = target.value;
-  //   const field = target.name;
-  //   this.setState({ note: value });
-  // };
-
-  onDecrease = (ev) => {
-    ev.preventDefault();
-    let { quantity } = this.state;
-    if (quantity <= 1) return;
-    quantity--;
-    this.setState({ quantity });
+  handleChange = ({ target }) => {
+    const value = target.value;
+    const field = target.name;
+    this.setState({ note: value });
   };
-
-  onIncrease = (ev) => {
-    ev.preventDefault();
-    let { quantity } = this.state;
-    quantity++;
-    this.setState({ quantity });
+  initialQuantity = (cart) => {
+    cart.forEach((item, idx) => {
+      item.quantity = 1;
+    });
   };
-  
-  onCheckOut = () => {
+  onDecreaseQuantity = (quantity, item) => {
     const { cart } = this.state;
-    const { user, users, updateUser } = this.props;
-    const artistId = cart[0].artist._id;
-    const artist = users.find((user) => user._id === artistId);
+    quantity === 1 ? item.quantity = 1 : item.quantity --
+    this.state.cart.forEach((product) => {
+      if(item === product)product.quantity = item.quantity;
+    }
+    );
+    this.setState({ cart });
+  };
+  onIncreaseQuantity = (quantity, item) => {
+    const { cart } = this.state;
+    quantity === 1 ? item.quantity = 2 : item.quantity ++
+
+    this.state.cart.forEach((product) => {
+      if(item === product)product.quantity = item.quantity;
+    });
+    this.setState({ cart });
+  };
+  onCheckOut = async () => {
+    const { cart } = this.state;
+    // await userService.updateUser(cart);
+    await this.props.loadUsers()
+    const { loggedInUser , users, updateUser,} = this.props;
+    console.log('users',users);
+
+    //לשנות לidx
     const artId = cart[0]._id;
-    const buyerId = user._id;
+    console.log('artId',artId);
+    const artistId = cart[0].artist._id;
+    console.log('artistId',artistId);
+    const quantity = cart[0].quantity
+    console.log('quantity',quantity);
+
+
+    // const artist = users.find((user) => user._id === artistId);
+    let artist =  users.find( (user) => {
+      // console.log('user._id', user._id )
+      // console.log('artistId',artistId);
+      return user._id === artistId
+    });
+    console.log('artist',artist);
+
+
+    // // const buyerId = loggedInUser._id;
     artist.orders.push({
-      buyerId,
-      artId,
+      // buyerId,
+      quantity,
+      artId
     });
 
-    console.log("artist.orders", artist.orders);
+    console.log('artist updated orders',artist.orders);
     updateUser(artist);
-    localStorage.setItem("shoppingCart", []);
-    //localStorage.removeItem('shoppingCart');
+
+    // localStorage.setItem("shoppingCart", []);
+    // this.setState({ cart: [] });
+    // //localStorage.removeItem('shoppingCart');
   };
 
-  total = (item) => {
-    return this.state.cart.reduce((tot, item) => tot + item.price, 0);
+  addToOrders = () => {
+
+  };
+
+  total = () => {
+    return this.state.cart.reduce((tot, item) => tot + item.price * (item.quantity || 1)  , 0);
   };
 
   render() {
-    const { cart, note, quantity } = this.state;
-    const { user } = this.props;
-    console.log("cart", cart);
+    const { cart, note } = this.state;
+    // const { user } = this.props;
+    const quantity = 1
     return (
       <section className="shoppingCart flex column">
         <h1 className="cart-title">Shopping cart</h1>
-
         {
           <div className="cart-list">
             <Table>
@@ -120,42 +150,39 @@ class _ArtCart extends React.Component {
                     <TableCell>${item.price} </TableCell>
                     <TableCell>
                       <p className="flex">
-                        <button className="dec-btn" onClick={this.onDecrease}>
+                        <button className="dec-btn" onClick={() =>this.onDecreaseQuantity(this.state.cart[idx].quantity || quantity , cart[idx])}>
                           -
                         </button>
-                        <span className="quantity">{quantity}</span>
-                        <button className="inc-btn" onClick={this.onIncrease}>
+                        <span className="quantity">{ cart[idx].quantity ? (cart[idx].quantity) : (quantity) }</span>
+                        <button className="inc-btn" onClick={() =>this.onIncreaseQuantity(this.state.cart[idx].quantity || quantity , cart[idx])}>
                           +
                         </button>
                       </p>
                     </TableCell>
-                    <TableCell>${item.price * quantity} </TableCell>
+                    <TableCell>${item.price * (cart[idx].quantity || 1)} </TableCell>
                     <TableCell>
                       <IconButton edge="end" aria-label="delete">
-                        <DeleteIcon
-                          onClick={() => this.onRemoveItem(item._id)}
-                        />
+                        <DeleteIcon onClick={() => this.onRemoveItem(item._id)}/>
                       </IconButton>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
-                  <TableRow>
+              <TableRow>
                 <div>{`Total - $${this.total()}`}</div>
               </TableRow>
-            
             </Table>
           </div>
           // <EmptyState className="empty-state" txt="Your bag is currently empty" />
         }
 
         <div className="cart-actions">
-          {/* <div className="cart-note">
+          <div className="cart-note">
             <form>
               <h3>Add a Note:</h3>
               <textarea className="add-note" value={note} name="note" onChange={this.handleChange}></textarea>
             </form>
-          </div> */}
+          </div>
           <div className="btn flex">
             <button>
               <Link to={`/art`}> Continue shopping</Link>
@@ -165,19 +192,21 @@ class _ArtCart extends React.Component {
           </div>
         </div>
       </section>
-    )}
+    );
+  }
 }
 
 function mapStateToProps({ userModule }) {
   return {
-    user: userModule.loggedInUser,
+    loggedInUser: userModule.loggedInUser,
     users: userModule.users,
   };
 }
 
 const mapDispatchToProps = {
-  removeCartItem,
+  // removeCartItem,
   updateUser,
+  loadUsers,
 };
 
 export const ArtCart = connect(mapStateToProps, mapDispatchToProps)(_ArtCart);

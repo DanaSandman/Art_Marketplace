@@ -71,6 +71,7 @@ if(user._id){
         imgUrl: user.imgUrl,
         imgHero: user.imgHero,
         decription: user.decription,
+        orders: user.orders,
         username: user.username,
     }
     const collection = await dbService.getCollection('user')

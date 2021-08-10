@@ -15,7 +15,9 @@ async function query() {
 }
 //DELETE
 async function remove(itemId) {
+  console.log('remove',itemId);
   const cart = await storageService.remove(STORAGE_KEY, itemId);
+  console.log('remove end',itemId);
   return cart;
 }
 //ADD

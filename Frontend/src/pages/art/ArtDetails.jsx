@@ -9,7 +9,6 @@ import { ArtList } from "../../cmps/art/ArtList.jsx";
 
 import { LongTxt } from "../../cmps/util/LongTxt.jsx"
 import { saveCartItem } from "../../store/cart/cart.action.js";
-import { saveWishItem } from "../../store/wishlist/wishlist.action.js"
 import {SideCart} from "../../cmps/cart/SideCart.jsx"
 import {SideCartWishList} from "../../cmps/cart/SideCartWishList.jsx"
 
@@ -23,7 +22,7 @@ class _ArtDetails extends React.Component {
     window.scrollTo(0, 0)
 
     const { artId } = this.props.match.params;
-    const { setArt, loadArts, saveCartItem,saveWishItem } = this.props;
+    const { setArt, loadArts, saveCartItem } = this.props;
     // await this.setDetails( this.props.match.params )
     await setArt( artId)
   
@@ -35,7 +34,6 @@ class _ArtDetails extends React.Component {
     };
     loadArts(filterBy);
     saveCartItem();
-    saveWishItem();
   }
 
   async componentWillReceiveProps(nextProps){
@@ -78,7 +76,7 @@ class _ArtDetails extends React.Component {
   };
 
   render() {
-    const { selectedArt, saveCartItem, loggedInUser, saveWishItem } = this.props;
+    const { selectedArt, saveCartItem, loggedInUser } = this.props;
     if (!selectedArt) return <Loader />;
     const { arts } = this.props;
     return (
@@ -189,7 +187,6 @@ class _ArtDetails extends React.Component {
                 <SideCartWishList addedItem = {selectedArt}/>
                   {/* <WishListModal 
                   selectedArt={selectedArt}
-                  saveWishItem={saveWishItem}
                    /> */}
                 </div>
                 <br />
@@ -230,7 +227,6 @@ const mapDispatchToProps = {
   setArt,
   loadArts,
   saveCartItem,
-  saveWishItem,
 };
 export const ArtDetails = connect(
   mapStateToProps,

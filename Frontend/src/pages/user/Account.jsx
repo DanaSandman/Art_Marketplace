@@ -11,6 +11,7 @@ import {
   signup,
   updateUser,
   resetPassword,
+  // loadUsers
 } from '../../store/user/user.action.js';
 //ACTION ART
 import { removeArt, loadArts } from '../../store/art/art.action.js';
@@ -28,6 +29,8 @@ class _Account extends Component {
     console.log('tab acc',tab);
 
     if (!tab || tab === 'undefined') this.props.history.push('/account/login');
+
+    // this.props.loadUsers()
   }
   
   render() {
@@ -50,6 +53,7 @@ class _Account extends Component {
       // const ordersToUser = orders.filter(order => order.items.filter(item => item.artist.id === userId));
       // const userOrders = {ordersByUser,ordersToUser}
       const userOrders = loggedInUser.orders;
+
       return (
         <div className='account-page'>
           <h3>Account</h3>
@@ -85,6 +89,7 @@ function mapStateToProps({ userModule, artModule }) {
   return {
     loggedInUser: userModule.loggedInUser,
     arts: artModule.arts,
+    // users: userModule.users,
     // orders: orderModule.orders,
   };
 }
@@ -98,6 +103,7 @@ const mapDispatchToProps = {
   resetPassword,
   removeArt,
   loadArts,
+  // loadUsers
 };
 
 export const Account = connect(mapStateToProps, mapDispatchToProps)(_Account);

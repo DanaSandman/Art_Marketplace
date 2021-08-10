@@ -2,6 +2,7 @@ import { httpService } from '../http.service.js';
 import { storageService } from './user-storage.service';
 
 const STORAGE_KEY = 'users';
+
 export const userService = {
     login,
     signup,

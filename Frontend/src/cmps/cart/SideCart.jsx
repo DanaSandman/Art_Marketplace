@@ -43,6 +43,7 @@ export function SideCart(addedItem) {
   };
 
   const addToCart = async () => {
+
     await cartService.add(addedItem.addedItem);
     setItemes(await cartService.query());
     setDrawerOpen(true);

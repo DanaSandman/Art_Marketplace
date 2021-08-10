@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { EmptyState } from "../../cmps/util/EmptyState.jsx";
-import { connect } from "react-redux";
 import { wishlistService } from "../../services/wishlist/wishlist.service.js";
 import { cartService } from "../../services/cart/cart.service.js";
-import { removeWishItem } from "../../store/wishlist/wishlist.action.js";
 import {
   Table,
   TableRow,
@@ -14,7 +12,6 @@ import {
   TableBody,
   IconButton,
 } from "@material-ui/core";
-import { updateUser } from "../../store/user/user.action.js";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 export function Wishlist() {
