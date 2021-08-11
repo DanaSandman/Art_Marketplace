@@ -4,11 +4,8 @@
     width: 100%;
     height: 100%;
     text-align: center;
-   /* grid-template-columns:
-        minmax(2rem, 1fr)
-        minmax(auto, $normal-breakpoint)
-        minmax(2rem, 1fr);
-    grid-template-rows: 1fr 1fr 3fr 1fr;*/
+    max-width: 95%;
+    margin: auto;
 }
 .check-out-container form {
     display: grid;

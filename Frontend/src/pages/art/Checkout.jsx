@@ -1,10 +1,12 @@
 import React from 'react';
-import { TextField, Button } from '@material-ui/core';
+import { useLocation } from "react-router-dom";
+import { TextField } from '@material-ui/core';
+import { CheckoutModal } from '../../cmps/art/CheckoutModal.jsx';
 
 
-export class Checkout extends React.Component {
-    state = {
-        buyer: {
+export function Checkout () {
+
+      const initialBuyer = {
             firstName: '',
             lastName: '',
             company: '',
@@ -14,13 +16,17 @@ export class Checkout extends React.Component {
             city: '',
             country: '',
             phoneNumber: null,
-        },
-    };
+        }
 
-    handleChange = ({ target }) => {
+ const [ buyer, setBuyer ] = React.useState(initialBuyer)
+
+        const location = useLocation();
+        const {onCheckOut} = location.state;
+
+ const handleChange = ({ target }) => {
         const field = target.name;
         const value = target.type === 'number' ? +target.value : target.value;
-        this.setState(
+        setBuyer(
             (prevState) => {
                 return {
                     buyer: {
@@ -32,9 +38,7 @@ export class Checkout extends React.Component {
         );
     }
 
-    render() {
-        const { buyer } = this.state;
-        const {
+ const {
             firstName,
             lastName,
             company,
@@ -45,12 +49,11 @@ export class Checkout extends React.Component {
             country,
             phoneNumber,
         } = buyer;
+
         return (
             <div className="check-out-container">
                 <div className="check-out-title">
-                <h1>Contact information</h1>
-                </div>
-                
+                <h1>Contact information</h1>               
                 <form>
                     <TextField
                         required
@@ -58,7 +61,7 @@ export class Checkout extends React.Component {
                         name='firstName'
                         label='First name'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     >
                     </TextField>
                     <TextField
@@ -67,7 +70,7 @@ export class Checkout extends React.Component {
                         name='lastName'
                         label='Last name'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     >
                     </TextField>
                     <TextField
@@ -76,7 +79,7 @@ export class Checkout extends React.Component {
                         name='company'
                         label='Company (optional)'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     >
                     </TextField>
                     <TextField
@@ -85,7 +88,7 @@ export class Checkout extends React.Component {
                         name='address'
                         label='Address'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     >
                     </TextField>
                     <TextField
@@ -94,7 +97,7 @@ export class Checkout extends React.Component {
                         name='apartment'
                         label='Apartment'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     >
                     </TextField>
                     <TextField
@@ -103,7 +106,7 @@ export class Checkout extends React.Component {
                         name='postalCode'
                         label='Postal Code'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     >
                     </TextField>
                     <TextField
@@ -112,7 +115,7 @@ export class Checkout extends React.Component {
                         name='city'
                         label='City'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     >
                     </TextField>
 
@@ -122,7 +125,7 @@ export class Checkout extends React.Component {
                         name='country'
                         label='Country'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     />
                     <TextField
                         required
@@ -130,7 +133,7 @@ export class Checkout extends React.Component {
                         name='country'
                         label='Country'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     />
                     <TextField
                         required
@@ -138,13 +141,11 @@ export class Checkout extends React.Component {
                         name='phoneNumber'
                         label='Phone number'
                         variant='outlined'
-                        onChange={this.handleChange}
+                        onChange={handleChange}
                     />
-                    <Button variant='outlined' type='submit'>
-                        Continue to shipping
-                </Button>
+                    <CheckoutModal  onCheckOut={onCheckOut} variant='outlined' type='submit'/>
                 </form >
+                </div>
             </div>
         );
     }
-}

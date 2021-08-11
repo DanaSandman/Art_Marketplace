@@ -11,6 +11,7 @@ import { ArtistProfile } from "./pages/artist/ArtistProfile.jsx";
 import { Wishlist } from "./pages/art/Wishlist.jsx";
 import { ArtByCategory } from "./pages/art/ArtByCategory.jsx";
 
+
 export const routes = [
   {
     path: "/home",

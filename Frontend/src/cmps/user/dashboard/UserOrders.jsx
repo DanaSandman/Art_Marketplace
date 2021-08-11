@@ -17,7 +17,7 @@ export function UserOrders({ arts, isMobileView }) {
       'Material',
       'Price',
       'Quantity',
-      'Checked'
+      'Completed'
     ];
     const data = arts.map((art) => {
       return {
@@ -39,16 +39,16 @@ export function UserOrders({ arts, isMobileView }) {
   };
   const getMobileTable = () => {
     const columns = [
-      'Item',
       'Title',
+      'Item',
       'Material',
       'Price',
       'Quantity',
     ];
     const data = arts.map((art) => {
       const details = [
-        <img className='art-img' src={art.art.imgUrl} />,
         art.art.title,
+        <img className='art-img' src={art.art.imgUrl} />,
         art.art.material,
         `${art.art.price} $`,
         art.quantity,

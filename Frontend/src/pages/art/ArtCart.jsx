@@ -13,13 +13,12 @@ import {
 import { EmptyState } from "../../cmps/util/EmptyState.jsx";
 // import { removeCartItem } from "../../store/cart/cart.action.js";
 import { updateUser, loadUsers } from "../../store/user/user.action.js";
-import { CheckoutModal } from "../../cmps/art/CheckoutModal.jsx";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 class _ArtCart extends React.Component {
   state = {
     cart: [],
-    note: "",
+    note: '',
   };
 
   async componentDidMount() {
@@ -65,7 +64,6 @@ class _ArtCart extends React.Component {
     const { cart } = this.state;
     await this.props.loadUsers()
     const {users, updateUser,} = this.props;
-    console.log('users',users);
 
     let artId = ''
     let artistId = ''
@@ -97,6 +95,7 @@ class _ArtCart extends React.Component {
     );
     localStorage.removeItem("shoppingCart");
     this.setState({ cart: [] });
+    this.setState({ note: '' });
   };
 
   total = () => {
@@ -105,7 +104,6 @@ class _ArtCart extends React.Component {
 
   render() {
     const { cart, note } = this.state;
-    // const { user } = this.props;
     const quantity = 1
     return (
       <section className="shoppingCart flex column">
@@ -182,8 +180,7 @@ class _ArtCart extends React.Component {
             <button>
               <Link to={`/art`}> Continue shopping</Link>
             </button>
-            <CheckoutModal onCheckOut={this.onCheckOut} />
-            {/* <button onClick={this.onCheckOut}> Check out</button>*/}
+            <Link className="btn-add-to-bag" to={{pathname:'/checkout', state: { onCheckOut: this.onCheckOut } }}> Check Out</Link>
           </div>
         </div>
       </section>
