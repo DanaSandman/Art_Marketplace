@@ -4,3 +4,10 @@
 .btn-add-to-bag{
     margin-top: .3125rem;
 }
+
+@media(max-width:$mobile-breakpoint){
+    .MuiDrawer-paperAnchorRight , .MuiListItem-container{
+        width: 100vw;
+    }
+}
+
