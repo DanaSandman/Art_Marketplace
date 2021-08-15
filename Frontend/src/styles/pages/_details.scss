@@ -124,7 +124,6 @@ a{
 input[type='radio']:after {
   width: 15px;
   height: 15px;
-  // border-radius: 15px;
   top: -2px;
   left: -1px;
   position: relative;
@@ -137,7 +136,6 @@ input[type='radio']:after {
 input[type='radio']:checked:after {
   width: 15px;
   height: 15px;
-  // border-radius: 15px;
   top: -2px;
   left: -1px;
   position: relative;
@@ -165,6 +163,7 @@ label{
   align-items: center;
   .content-txt{
     max-width: none;
+    min-width: -webkit-fill-available;
     align-items: center;
     }
   }

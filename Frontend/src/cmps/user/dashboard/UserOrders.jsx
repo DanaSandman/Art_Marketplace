@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 
@@ -28,7 +27,7 @@ export function UserOrders({ arts, isMobileView }) {
           `${art.art.price} $`,
           art.quantity,
           // `${art.art.size.height}x${art.art.size.width} cm`,
-          // <Button onClick={() => removeArt(art._id)}>
+          // <Button onClick={() => removeArt(art._id)}
           <Button>
         <CheckIcon></CheckIcon>
           </Button>,

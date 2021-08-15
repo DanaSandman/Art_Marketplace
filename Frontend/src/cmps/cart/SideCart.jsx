@@ -98,11 +98,14 @@ export function SideCart(addedItem) {
           onClose={toggleDrawer(false)}
         >
           {list("right")}
+          <div className="side-card">
+          
           {`Total - $${total()}`}
-          <button>
-            <Link to={`/cart`}>VIEW CART</Link>
+          <button className="btn-add-to-bag">
+            <Link  className="btn-add-to-bag" to={`/cart`}>VIEW CART</Link>
           </button>
           <Link to={`/art`}> continue shopping</Link>
+          </div>
         </Drawer>
       </React.Fragment>
     </div>

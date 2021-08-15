@@ -1,82 +1,61 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { connect } from "react-redux";
 import { setArt, loadArts } from "../../store/art/art.action.js";
+
 import { Loader } from "../../cmps/util/Loader.jsx";
 import { ArtList } from "../../cmps/art/ArtList.jsx";
-// import { PurchaseModal } from "../../cmps/art/PurchaseModal.jsx";
-// import { WishListModal } from "../../cmps/art/WishlistModal.jsx"
-
-import { LongTxt } from "../../cmps/util/LongTxt.jsx"
-import { saveCartItem } from "../../store/cart/cart.action.js";
-import {SideCart} from "../../cmps/cart/SideCart.jsx"
-import {SideCartWishList} from "../../cmps/cart/SideCartWishList.jsx"
+import { LongTxt } from "../../cmps/util/LongTxt.jsx";
+import { SideCart } from "../../cmps/cart/SideCart.jsx";
+import { SideCartWishList } from "../../cmps/cart/SideCartWishList.jsx";
 
 class _ArtDetails extends React.Component {
-
   state = {
-    frame: "none-border"
+    frame: "none-border",
   };
 
   async componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
 
     const { artId } = this.props.match.params;
-    const { setArt, loadArts, saveCartItem } = this.props;
+    const { setArt, loadArts } = this.props;
     // await this.setDetails( this.props.match.params )
-    await setArt( artId)
-  
+    await setArt(artId);
+
     const { _id, artist } = this.props.selectedArt;
-    console.log('this.props.selectedArt',this.props.selectedArt._id);
+    console.log("this.props.selectedArt", this.props.selectedArt._id);
     const filterBy = {
       _id,
       artistId: artist._id,
     };
     loadArts(filterBy);
-    saveCartItem();
   }
 
-  async componentWillReceiveProps(nextProps){
-    window.scrollTo(0, 0)
-   if(nextProps.match.params.artId !== nextProps.selectedArt._id){
-    // await this.setDetails(nextProps.match.params.artId)
-      await this.props.setArt( nextProps.match.params.artId)
+  async componentWillReceiveProps(nextProps) {
+    window.scrollTo(0, 0);
+    if (nextProps.match.params.artId !== nextProps.selectedArt._id) {
+      // await this.setDetails(nextProps.match.params.artId)
+      await this.props.setArt(nextProps.match.params.artId);
       const { _id, artist } = this.props.selectedArt;
       const filterBy = {
         _id,
         artistId: artist._id,
       };
-        this.props.loadArts(filterBy);
-      }
+      this.props.loadArts(filterBy);
+    }
   }
-   setDetails = async (artId) => {
-    // console.log(artId,'artId');
-    //  this.props.setArt(artId)
-
-    // console.log('this.props.selectedArt._id',this.props.selectedArt._id);
-    // console.log('this.props.selectedArt.artist._id',this.props.selectedArt.artist._id);
-
-    // const { _id, artist } = this.props.selectedArt;
-    // const filterBy = {
-    //   _id,
-    //   artistId: artist._id,
-    // };
-    // const filterBy = {
-    //   _id: this.props.selectedArt._id,
-    //   artistId: 'u106'
-    // };
-
-    //   console.log('filterBy',filterBy);
-    //   this.props.loadArts(filterBy);
-  }
+  //לאחד לפונקצייה אחת
+  //  setDetails = async (artId) => {
+  // }
   handleChange = (ev) => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     const frameOption = ev.target.value;
     this.setState({ frame: frameOption });
   };
 
   render() {
-    const { selectedArt, saveCartItem, loggedInUser } = this.props;
+    const { selectedArt,  loggedInUser } = this.props;
     if (!selectedArt) return <Loader />;
     const { arts } = this.props;
     return (
@@ -85,9 +64,7 @@ class _ArtDetails extends React.Component {
           <div className="main">
             <section className="main-art-details flex">
               <div className="imgs flex">
-
                 <div className="content-img">
-
                   <div className="container-img">
                     <img
                       src="https://d3t95n9c6zzriw.cloudfront.net/static/img/view_in_a_room_2019_2b.jpg"
@@ -96,22 +73,21 @@ class _ArtDetails extends React.Component {
                     />
                     <img
                       src={selectedArt.imgUrl}
-                      className={`img2 ${this.state.frame+'2'}`}
+                      className={`img2 ${this.state.frame + "2"}`}
                       alt={selectedArt.imgUrl}
                     />
                   </div>
                 </div>
-                
+
                 <div className="img-details">
-                <div className="container-img-details">
-                  <img 
-                    className={`${this.state.frame} imgd`}
-                    src={selectedArt.imgUrl}
-                    alt={`${selectedArt.title}`}
-                  />
+                  <div className="container-img-details">
+                    <img
+                      className={`${this.state.frame} imgd`}
+                      src={selectedArt.imgUrl}
+                      alt={`${selectedArt.title}`}
+                    />
                   </div>
                 </div>
-
               </div>
 
               <div className="content-txt">
@@ -175,40 +151,31 @@ class _ArtDetails extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div>
-                </div>
+                <div></div>
                 <div className="details-modals">
-                <SideCart addedItem = {selectedArt}/>
-                  {/* <PurchaseModal
-                    selectedArt={selectedArt}
-                    saveCartItem={saveCartItem}
-                    loggedInUser={loggedInUser}
-                  /> */}
-                <SideCartWishList addedItem = {selectedArt}/>
-                  {/* <WishListModal 
-                  selectedArt={selectedArt}
-                   /> */}
+                  <SideCart addedItem={selectedArt} />
+                  <SideCartWishList addedItem={selectedArt} />
                 </div>
                 <br />
                 <p>DESCRIPTION</p>
                 <br />
-                <p><LongTxt description={selectedArt.description}/></p>
+                <p>
+                  <LongTxt description={selectedArt.description} />
+                </p>
               </div>
             </section>
 
-        <div className="artist-list-details flex  column space-between">
-        <Link to={`/artist/${selectedArt.artist._id}`}>
-           <button className="btn-more-work">More work by {selectedArt.artist.fullname}
-            </button>
-             {" "} 
-          </Link>
-
-          <ArtList arts={arts}/>
-        </div>
-        </div>
+            <div className="artist-list-details flex  column space-between">
+              <Link to={`/artist/${selectedArt.artist._id}`}>
+                <button className="btn-more-work">
+                  More work by {selectedArt.artist.fullname}
+                </button>{" "}
+              </Link>
+              <ArtList arts={arts} />
+            </div>
+          </div>
         )}
       </div>
-
     );
   }
 }
@@ -226,7 +193,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   setArt,
   loadArts,
-  saveCartItem,
 };
 export const ArtDetails = connect(
   mapStateToProps,
