@@ -64,6 +64,11 @@ export class MobileNav extends Component {
       onClick: null,
     },
     {
+      label: " ",
+      href: '/home',
+      onClick: null,
+    },
+    {
       label: <FavoriteIcon />,
       href: '/wishlist',
       onClick: null,
@@ -126,16 +131,17 @@ export class MobileNav extends Component {
               </div>
             </Drawer>
             <nav>
-              {this.getHeaderData().map(({ label, href, onClick }, idx) => (
+   
+              {this.getHeaderData().map(({ label, href, onClick  }, idx) => (
                 <Link
-                  {...{
-                    component: RouterLink,
-                    to: href,
-                    color: 'inherit',
-                    style: { textDecoration: 'none' },
-                    key: idx,
-                    onClick: onClick,
-                  }}
+                {...{
+                  component: RouterLink,
+                  to: href,
+                  color: 'inherit',
+                  style: { textDecoration: 'none' },
+                  key: idx,
+                  onClick: onClick,
+                }}
                 >
                   {label}
                 </Link>

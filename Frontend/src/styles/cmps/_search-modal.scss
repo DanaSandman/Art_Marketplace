@@ -40,13 +40,8 @@
   padding: 0 20px 0 10px;
 }
 .search-table{
-//   display: grid;
   width: 100%;
   height: fit-content;
-//   grid-template-columns: auto 1fr;
-//   justify-content: center;
-//   grid-gap: 20px;
-//   align-items: center;
 }
 .search-table .content {
   width: 100%;
@@ -121,6 +116,9 @@
 }
 
 @media (max-width: $mobile-breakpoint) {
+  a{
+    font-size: xx-large;
+  }
   .search-table {
     max-width: 500px;
   }

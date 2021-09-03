@@ -19,7 +19,7 @@ export class _ArtByCategory extends React.Component {
   render() {
     return (
       <Fragment>
-        <h1>By Category - {this.props.arts[0].category} </h1>
+        <h1 className="by-category-title">By Category - {this.props.arts[0].category} </h1>
         <ArtList arts={this.props.arts} />
       </Fragment>
     );

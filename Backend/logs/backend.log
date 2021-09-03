@@ -442,3 +442,39 @@
 8/15/2021, 1:02:36 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
 8/15/2021, 1:06:24 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
 8/15/2021, 1:07:59 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/15/2021, 6:05:19 PM - INFO - Server is running on port: 3030 
+8/15/2021, 6:05:27 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/15/2021, 6:05:32 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/15/2021, 6:07:38 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/15/2021, 6:09:54 PM - INFO - Server is running on port: 3030 
+8/15/2021, 6:10:10 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/15/2021, 6:10:36 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/15/2021, 6:10:39 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+8/15/2021, 6:10:57 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 2:42:05 PM - INFO - Server is running on port: 3030 
+9/2/2021, 2:44:38 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 2:44:46 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 2:44:48 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 3:11:43 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 3:24:19 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 3:43:07 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:20:50 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:47:43 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:47:58 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:50:35 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:50:44 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:51:04 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:51:47 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:53:40 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:54:26 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:56:02 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:57:48 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 4:57:52 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 5:08:09 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 5:08:32 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 5:10:42 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 5:11:21 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 5:14:20 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 5:18:18 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 5:18:56 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
+9/2/2021, 5:19:12 PM - ERROR - Failed to get users | ReferenceError: users is not defined 

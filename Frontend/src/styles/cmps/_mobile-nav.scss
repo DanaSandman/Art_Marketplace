@@ -1,14 +1,11 @@
 .mobile-nav nav {
   display: grid;
   grid-template-columns: 1fr auto auto;
-  text-align: center;
-  align-items: center;
   justify-items: center;
   grid-gap: 10px;
   width: 100%;
   height: 100%;
 }
-
 .mobile-nav .logo {
   margin: 0;
 }

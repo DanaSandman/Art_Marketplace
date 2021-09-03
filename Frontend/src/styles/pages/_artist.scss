@@ -1,3 +1,6 @@
+.artist-page{
+    max-width: 100vw;
+}
 .main-artist{
     margin: 0 7rem 1rem 7rem;
     p{ 
@@ -34,19 +37,31 @@
 .artist-details{
     margin-bottom: 4rem;
     img{
-        max-width: 40%;
+        min-width: 300px;
+        max-width: 100vw;
         max-height: 21.875rem;
-        margin: 0 3.125rem 0 1.25rem;
+        margin: 0 3.125rem 0 3.125rem;
         object-fit: contain;
     }
     .text-description{
+        max-width: 300px;
         width: 56.25rem;
         margin-top: 1.5rem;
     }
  
 }
 
-@media (min-width: $mobile-breakpoint) {
+@media (max-width: $mobile-breakpoint) {
+    .main-artist{
+        margin: 0px;
+    }
+    .artist-details{
+        img{
+            margin: 0px;
+        }
+        flex-direction: column;
+        align-items: center;
+    }
     .artist-hero-title {
         top: 30%;
         left: 20%;
@@ -58,8 +73,11 @@
         }
     }
 }
-
-@media (min-width: $narrow-breakpoint) {
+@media (max-width: $narrow-breakpoint) {
+    .artist-details{
+        flex-direction: column;
+        align-items: center;
+    }
     .artist-hero-title {
         h1 {
             font-size: 45px;
@@ -69,13 +87,20 @@
         }
     }
 }
-
-@media (min-width: $normal-breakpoint) {
+@media (max-width: 845px) {
+    .artist-details{
+        margin-bottom: 0px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: $normal-breakpoint) {
     .artist-hero-title {
+        max-width: 100vw;
         top: 30%;
-        left: 35%;
+        right: 15%;
         h1 {
-            font-size: 55px;
+            font-size: 45px;
         }
         p{
             font-size: 36px;

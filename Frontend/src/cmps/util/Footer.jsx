@@ -1,5 +1,4 @@
 import React from 'react'
-import { Fragment } from 'react'
 export class Footer extends React.Component {
 
     render() {
