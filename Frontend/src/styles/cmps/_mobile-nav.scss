@@ -1,6 +1,7 @@
 .mobile-nav nav {
   display: grid;
   grid-template-columns: 1fr auto auto;
+  grid-template-rows: 5px 25px;
   justify-items: center;
   grid-gap: 10px;
   width: 100%;
@@ -8,6 +9,7 @@
 }
 .mobile-nav .logo {
   margin: 0;
+  margin-top: 1.5rem;
 }
 
 .mobile-nav a {

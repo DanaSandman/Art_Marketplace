@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   AppBar,
   Toolbar,
@@ -6,16 +6,16 @@ import {
   Drawer,
   Link,
   MenuItem,
-} from '@material-ui/core';
-import { Link as RouterLink } from 'react-router-dom';
-import MenuIcon from '@material-ui/icons/Menu';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import SearchIcon from '@material-ui/icons/Search';
-import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
-import CloseIcon from '@material-ui/icons/Close';
-import { Logo } from '../../util/Logo';
-import { SearchModal } from '../../util/SearchModal';
+} from "@material-ui/core";
+import { Link as RouterLink } from "react-router-dom";
+import MenuIcon from "@material-ui/icons/Menu";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import SearchIcon from "@material-ui/icons/Search";
+import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
+import CloseIcon from "@material-ui/icons/Close";
+import { Logo } from "../../util/Logo";
+import { SearchModal } from "../../util/SearchModal";
 
 export class MobileNav extends Component {
   state = { isDrawerOpen: false, isSearchOpen: false };
@@ -25,57 +25,66 @@ export class MobileNav extends Component {
   closeSearch = () => this.setState({ isSearchOpen: false });
   getDrawerData = () => [
     {
-      label: 'Home',
-      href: '/home',
+      label: "Home",
+      href: "/home",
     },
     {
-      label: 'Explore',
-      href: '/art',
+      label: "Explore",
+      href: "/art",
     },
     {
-      label: 'About',
-      href: '/about',
+      label: "About",
+      href: "/about",
     },
     {
-      label: 'Wishlist',
-      href: '/wishlist',
+      label: "Wishlist",
+      href: "/wishlist",
     },
     {
-      label: 'Account',
-      href: '/account',
+      label: "Account",
+      href: "/account",
     },
   ];
   getHeaderData = () => [
     {
-      label: <Logo />,
-      href: '/home',
-      onClick: null,
-    },
-    {
-      // label: <h4>Search</h4>,
-      label: <SearchIcon />,
-      href: '#',
-      onClick: this.openSearch,
-    },
-    {
-      // label: <h4>sal</h4>,
-      label: <LocalMallOutlinedIcon />,
-      href: '/cart',
+      label: " ",
       onClick: null,
     },
     {
       label: " ",
-      href: '/home',
+      onClick: null,
+    },
+    {
+      label: " ",
+      onClick: null,
+    },
+    {
+      label: <Logo />,
+      href: "/home",
+      onClick: null,
+    },
+    {
+      label: <SearchIcon />,
+      href: "#",
+      onClick: this.openSearch,
+    },
+    {
+      label: <LocalMallOutlinedIcon />,
+      href: "/cart",
+      onClick: null,
+    },
+    {
+      label: " ",
       onClick: null,
     },
     {
       label: <FavoriteIcon />,
-      href: '/wishlist',
+      href: "/wishlist",
       onClick: null,
     },
     {
       label: <AccountCircleIcon />,
-      href: '/account',
+      href: "/account",
       onClick: null,
     },
   ];
@@ -83,15 +92,15 @@ export class MobileNav extends Component {
   render() {
     const { isDrawerOpen, isSearchOpen } = this.state;
     return (
-      <div className='mobile-nav'>
-        <AppBar className='app-header'>
+      <div className="mobile-nav">
+        <AppBar className="app-header">
           <Toolbar>
             <IconButton
               {...{
-                edge: 'start',
-                color: 'inherit',
-                'aria-label': 'menu',
-                'aria-haspopup': 'true',
+                edge: "start",
+                color: "inherit",
+                "aria-label": "menu",
+                "aria-haspopup": "true",
                 onClick: this.openDrawer,
               }}
             >
@@ -99,15 +108,15 @@ export class MobileNav extends Component {
             </IconButton>
             <Drawer
               {...{
-                anchor: 'left',
+                anchor: "left",
                 open: isDrawerOpen,
                 onClose: this.closeDrawer,
-                PaperProps: { className: 'drawer-content' },
+                PaperProps: { className: "drawer-content" },
               }}
             >
               <IconButton
                 onClick={this.closeDrawer}
-                className='close-menu-modal-btn'
+                className="close-menu-modal-btn"
               >
                 <CloseIcon />
               </IconButton>
@@ -118,8 +127,8 @@ export class MobileNav extends Component {
                       {...{
                         component: RouterLink,
                         to: href,
-                        color: 'inherit',
-                        style: { textDecoration: 'none' },
+                        color: "inherit",
+                        style: { textDecoration: "none" },
                         key: idx,
                         onClick: this.closeDrawer,
                       }}
@@ -131,17 +140,16 @@ export class MobileNav extends Component {
               </div>
             </Drawer>
             <nav>
-   
-              {this.getHeaderData().map(({ label, href, onClick  }, idx) => (
+              {this.getHeaderData().map(({ label, href, onClick }, idx) => (
                 <Link
-                {...{
-                  component: RouterLink,
-                  to: href,
-                  color: 'inherit',
-                  style: { textDecoration: 'none' },
-                  key: idx,
-                  onClick: onClick,
-                }}
+                  {...{
+                    component: RouterLink,
+                    to: href,
+                    color: "inherit",
+                    style: { textDecoration: "none" },
+                    key: idx,
+                    onClick: onClick,
+                  }}
                 >
                   {label}
                 </Link>
