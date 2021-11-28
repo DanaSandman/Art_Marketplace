@@ -1,19 +1,8 @@
 .shoppingCart {
-    display: grid;
-    //font-size: small;
-    // height: 70vh;
-    text-align: center;
-    grid-template-columns:
-        minmax(2rem, 1fr)
-        minmax(auto, $normal-breakpoint)
-        minmax(2rem, 1fr);
-        grid-template-rows: 50px 10% 90% 15%;
     .cart-title {
-        grid-area: 1/2/3/3;
-        margin-top: 10px;
+        margin: 20px 0 0 20px;
     }
 }
-
 .cart-list {
     grid-area: 2/2/3/3;
     .MuiTableCell-head {
@@ -47,7 +36,6 @@
         margin-top: 5px;
     }
 }
-
 textarea {
     width: 300px;
     height: 50px;
@@ -68,20 +56,32 @@ textarea {
 .empty-state {
     grid-area: 2/2/3/3;
 }
-
 .cart-item-img {
     max-width: rem(200px);
     max-height: rem(100px);
     object-fit: contain;
 }
-
 .dec-btn,
 .inc-btn {
     width: rem(50px);
 }
-
 .quantity {
     font-size: 0.875rem;
     margin-right: rem(5px);
 }
 
+@media(max-width: 900px){
+    .shoppingCart{
+       .cart-actions{
+            flex-direction: column;
+            width: 300px;
+            text-align: center;
+           .btn{
+               a{
+                font-size: initial;
+               }
+            width: -webkit-fill-available;
+           }
+       } 
+    }
+}

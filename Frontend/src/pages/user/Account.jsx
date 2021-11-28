@@ -30,7 +30,6 @@ class _Account extends Component {
 
     if (!tab || tab === 'undefined') this.props.history.push('/account/login');
 
-    // this.props.loadUsers()
   }
   
   render() {
@@ -56,7 +55,6 @@ class _Account extends Component {
 
       return (
         <div className='account-page'>
-          <h3>Account</h3>
           <UserDashboard
             user={loggedInUser}
             userArts={userArts}
@@ -72,7 +70,6 @@ class _Account extends Component {
     } else
       return (
         <div className='account-page'>
-          <h3>Account</h3>
           <LoginSignUpReset
             login={login}
             signup={signup}
@@ -93,7 +90,6 @@ function mapStateToProps({ userModule, artModule }) {
     // orders: orderModule.orders,
   };
 }
-
 const mapDispatchToProps = {
   loadLoggedInUser,
   login,
@@ -105,5 +101,4 @@ const mapDispatchToProps = {
   loadArts,
   // loadUsers
 };
-
 export const Account = connect(mapStateToProps, mapDispatchToProps)(_Account);

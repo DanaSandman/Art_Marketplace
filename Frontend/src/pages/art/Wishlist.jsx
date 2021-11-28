@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { EmptyState } from "../../cmps/util/EmptyState.jsx";
@@ -13,15 +13,31 @@ import {
   IconButton,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
+import CheckIcon from '@material-ui/icons/Check';
+import { Button } from '@material-ui/core';
+
+import { MobileTable } from '../../cmps/user/dashboard/tables/MobileTable';
+
 
 export function Wishlist() {
   
   const history = useHistory();
-  const [cart, setCart] = React.useState([]);
+  const [cart, setCart] = useState([]);
+  const [isMobileView, setView] = useState(false);
 
-  React.useEffect(async () => {
+  useEffect(async () => {
+    window.addEventListener("resize", () => setResponsiveness());
+    console.log('isMobileView',isMobileView);
     setCart(await wishlistService.query());
   }, []);
+
+   useEffect(() => {
+    setResponsiveness();
+  }, [isMobileView]);
+
+  const setResponsiveness = () => {
+    return window.innerWidth < 900 ? setView(true): setView(false);
+  };
 
   const onRemoveItem = async (itemId) => {
     setCart(await wishlistService.remove(itemId));
@@ -32,10 +48,42 @@ export function Wishlist() {
     history.push("/cart");
   };
 
+  const getMobileTable = () => {
+    const columns = [
+      'Title',
+      'Item',
+      'Price',
+      'Quantity',
+    ];
+      const newLocal = [
+          <Button>
+              <CheckIcon></CheckIcon>
+          </Button>,
+      ];
+    const data = cart.map((art) => {
+      const details = [
+        art.title,
+        <img className='art-img' src={art.imgUrl} />,
+        art.material,
+        `${art.price} $`,
+        art.quantity
+      ];
+      const btns = newLocal;
+      return { details, btns };
+    });
+    return { columns, data };
+  };
+
   return (
     <section className="shoppingCart flex column">
-      <h1 className="cart-title">Wishlist</h1>
-      <div className="cart-list">
+    <h1 className="cart-title">Wishlist</h1>
+      {isMobileView ? (
+          <MobileTable
+          table={getMobileTable()}
+          emptyTxt="You don't have any orders yet."
+          />
+          ) : (
+        <div className="cart-list">
         <Table>
           <TableHead className="list-head">
             <TableRow>
@@ -45,7 +93,6 @@ export function Wishlist() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {cart && */}
             {cart ? (
               cart.map((item, idx) => (
                 <TableRow key={`a${idx}`}>
@@ -78,12 +125,10 @@ export function Wishlist() {
                 <EmptyState className="empty-state" txt="Your wishlist is currently empty"/>
               </div>
             )}
-            {/* {!cart || cart === [] &&  */}
-            {/* } */}
           </TableBody>
         </Table>
       </div>
-
+      )}
       <div className="cart-actions">
         <div className="btn flex">
           <button>
