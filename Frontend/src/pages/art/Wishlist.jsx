@@ -18,7 +18,6 @@ import { Button } from '@material-ui/core';
 
 import { MobileTable } from '../../cmps/user/dashboard/tables/MobileTable';
 
-
 export function Wishlist() {
   
   const history = useHistory();
@@ -52,12 +51,12 @@ export function Wishlist() {
     const columns = [
       'Title',
       'Item',
+      'Material',
       'Price',
       'Quantity',
     ];
       const newLocal = [
           <Button>
-              <CheckIcon></CheckIcon>
           </Button>,
       ];
     const data = cart.map((art) => {
@@ -66,7 +65,7 @@ export function Wishlist() {
         <img className='art-img' src={art.imgUrl} />,
         art.material,
         `${art.price} $`,
-        art.quantity
+        art.quantity = 1
       ];
       const btns = newLocal;
       return { details, btns };

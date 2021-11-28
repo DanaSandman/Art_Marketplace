@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { cartService } from "../../services/cart/cart.service.js";
@@ -11,7 +11,6 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { EmptyState } from "../../cmps/util/EmptyState.jsx";
-// import { removeCartItem } from "../../store/cart/cart.action.js";
 import { updateUser, loadUsers } from "../../store/user/user.action.js";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CheckIcon from "@material-ui/icons/Check";
@@ -22,7 +21,15 @@ class _ArtCart extends React.Component {
   state = {
     cart: [],
     note: "",
-    isMobileView: false,
+    isMobileView: true,
+  };
+
+  componentWillMount(){
+    this.setResponsiveness()
+    window.addEventListener("resize", () => this.setResponsiveness());
+  };
+  componentWillUnmount(){
+    window.removeEventListener("resize", () => this.setResponsiveness());
   };
 
   async componentDidMount() {
@@ -30,10 +37,8 @@ class _ArtCart extends React.Component {
     const cart = await cartService.query();
     this.setState({ cart });
     this.initialQuantity(this.state.cart);
-  }
-  componentWillUnmount() {
-    window.addEventListener("resize", () => this.setResponsiveness());
   };
+
   setResponsiveness = () => {
       window.innerWidth < 900 ? this.setState({ isMobileView: true }) : this.setState({ isMobileView: false });
   };
@@ -113,10 +118,9 @@ class _ArtCart extends React.Component {
     );
   };
   getMobileTable = () => {
-    const columns = ["Artwork", "Price", "Quantity", "Total", "Remove"];
+    const columns = ['Title',"Artwork", 'Material',"Price", "Quantity", "Remove"];
     const newLocal = [
       <Button>
-        <CheckIcon></CheckIcon>
       </Button>,
     ];
     const data = this.state.cart.map((art) => {
@@ -125,7 +129,7 @@ class _ArtCart extends React.Component {
         <img className="art-img" src={art.imgUrl} />,
         art.material,
         `${art.price} $`,
-        art.quantity,
+        art.quantity = 1 ,
       ];
       const btns = newLocal;
       return { details, btns };
@@ -219,7 +223,7 @@ class _ArtCart extends React.Component {
                 ))}
               </TableBody>
               <TableRow>
-                <div>{`Total - $${this.total()}`}</div>
+                <div className="total-cart">{`Total - $${this.total()}`}</div>
               </TableRow>
             </Table>
           </div>
