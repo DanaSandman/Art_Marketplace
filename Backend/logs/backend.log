@@ -601,3 +601,4 @@
 11/29/2021, 3:25:08 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
 11/29/2021, 3:25:10 PM - ERROR - Failed to get users | ReferenceError: users is not defined 
 11/29/2021, 3:26:24 PM - INFO - Server is running on port: 3030 
+11/29/2021, 3:44:45 PM - INFO - Server is running on port: 3030 

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/api/' : '//localhost:3030/api/'
+const BASE_URL = process.env.NODE_ENV === 'production' ? '//artour-art-marketplace.herokuapp.com/api/' : '//localhost:3030/api/'
 
 // var axios = axios.create({
 //     withCredentials: true
