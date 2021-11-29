@@ -11,7 +11,7 @@ export const artService = {
 };
 //LIST
 async function loadArts(filterBy) {
- return await httpService.get('art', filterBy);
+ return await httpService.get('art/', filterBy);
 //  return await storageService.query(STORAGE_KEY,filterBy );
 
 // return await storageService.loadArtsWithArtists(arts); //  לא עובד לבדוק או למחוק לגמרי

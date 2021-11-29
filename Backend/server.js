@@ -44,8 +44,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-
-
 const logger = require('./service/logger.service.js')
 const port = process.env.PORT || 3030;
 http.listen(port, () => {

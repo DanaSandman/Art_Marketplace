@@ -34,12 +34,12 @@ async function signup(userInfo) {
 //LIST
 async function query() {
     // return await storageService.query(STORAGE_KEY);
-    return await httpService.get('user')
+    return await httpService.get('user/')
 }
 //UPDATE 
 async function updateUser(user) {
     // return storageService.updateUser(user);
-    return await httpService.put('user', user)
+    return await httpService.put('user/', user)
 }
 //PASSEORD
 async function resetPassword(email, password) {
