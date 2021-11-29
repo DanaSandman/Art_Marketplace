@@ -89,7 +89,8 @@ margin-left: 0;
   margin-left: .3125rem;
 }
 .main{
-margin: 0 5rem 3rem;
+// margin: 0 5rem 3rem;
+margin: 0px;
 }
 .radio-buttons, .art-details{
 margin-bottom: 1.25rem;
@@ -151,6 +152,7 @@ label{
 }
 .btn-more-work{
   margin-left: auto;
+  border-radius: 4px;
 }
 
 //RESPONSIVE
