@@ -1,0 +1,44 @@
+//SETUP
+@import './setup/variables.scss';
+@import './setup/typography.scss';
+@import './setup/mixins.scss';
+@import './setup/functions.scss';
+
+//BASICS
+@import './basics/base.scss';
+@import './basics/buttons.scss';
+@import './basics/helpers.scss';
+@import './basics/layout.scss';
+
+//CMPS
+@import './cmps/art-preview.scss';
+@import './cmps/art-list.scss';
+@import './cmps/header.scss';
+@import './cmps/modal.scss';
+@import './cmps/footer.scss';
+@import './cmps/avatar.scss';
+@import './cmps/user-dashboard.scss';
+@import './cmps/user-details.scss';
+@import './cmps/art-form.scss';
+@import './cmps/user-form.scss';
+@import './cmps/user-arts.scss';
+@import './cmps/user-orders.scss';
+@import './cmps/login.scss';
+@import './cmps/reset-password.scss';
+@import './cmps/desktop-nav.scss';
+@import './cmps/mobile-nav.scss';
+@import './cmps/loader.scss';
+@import './cmps/search-modal.scss';
+@import './cmps/empty-state.scss';
+@import './cmps/SideCart.scss';
+
+//PAGES
+@import './pages/details.scss';
+@import './pages/home.scss';
+@import './pages/about.scss';
+@import './pages/art-cart.scss';
+@import './pages/artist.scss';
+@import './pages/checkout.scss';
+@import './pages/account-page.scss';
+@import './pages/wishlist.scss';
+

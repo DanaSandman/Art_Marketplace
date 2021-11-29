@@ -1,0 +1,13 @@
+.side-card{
+    margin: .9375rem;
+}
+.btn-add-to-bag{
+    border-radius: 3px;
+}
+
+@media(max-width:$mobile-breakpoint){
+    .MuiDrawer-paperAnchorRight , .MuiListItem-container{
+        width: 100vw;
+    }
+}
+

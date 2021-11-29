@@ -1,0 +1,31 @@
+.check-out-container {
+    display: grid;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    max-width: 95%;
+    margin: auto;
+}
+.check-out-container form {
+    display: grid;
+    grid-gap: 10px;
+    width: 100%;
+    grid-template-areas:
+      'iup ti'
+      'iup di'
+      'iup ci'
+      'iup mi'
+      'iup tqi'
+      'iup si'
+      'iup cli'
+      'iup szi'
+      'iup pri';
+    justify-content: normal;
+    outline: double;
+    padding: inherit;
+  }
+  
+  
+
+  

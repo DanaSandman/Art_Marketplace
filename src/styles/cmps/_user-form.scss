@@ -1,0 +1,107 @@
+.signup {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+}
+
+.user-form {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  -webkit-text-stroke: thin;
+}
+
+.user-form form {
+  display: grid;
+  grid-template-areas: 'fimg finputs' 'fbtns finputs';
+  grid-gap: 20px;
+  height: 100%;
+  width: 450px;
+  justify-content: normal;
+  outline: double;
+  padding: 10px;
+}
+
+.user-form .form-inputs {
+  display: grid;
+  grid-area: finputs;
+  grid-gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.user-form .form-inputs section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  grid-gap: 5px;
+}
+
+.user-form .form-img {
+  display: grid;
+  grid-area: fimg;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  width: fit-content;
+  height: 100%;
+  align-self: center;
+  text-align: center;
+}
+
+.img-upload-preview {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+}
+
+.user-form .img-preview {
+  height: 100px;
+  width: 100px;
+}
+
+.user-form .empty-img {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px dotted black;
+  align-content: center;
+  justify-content: center;
+  color: gray;
+  font-size: 16px;
+}
+
+.user-form .img-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-upload {
+  display: grid;
+  justify-content: left;
+}
+
+.user-form .form-btns {
+  width: 100%;
+  grid-area: fbtns;
+  height: fit-content;
+}
+
+.user-form .form-btns > button:first-child {
+  margin-right: 10px;
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .user-form form {
+    grid-template-areas: 'fimg' 'finputs' 'fbtns';
+    width: 90vw;
+  }
+  .user-form .img-upload-preview {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 10px;
+  }
+}

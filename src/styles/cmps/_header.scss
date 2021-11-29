@@ -1,0 +1,43 @@
+.app-header {
+  padding-top:.625rem;
+  background-color: $clr6 !important;
+  box-shadow: none !important;
+  color: $clr1 !important;
+}
+.app-header > div {
+  width: 100vw;
+  left: 0;
+  gap: 10px;
+}
+.drawer-content {
+  display: grid !important;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  min-width: fit-content;
+  max-width: 250px;
+  padding: 10px;
+}
+.drawer-content button {
+  width: fit-content;
+  justify-self: end;
+}
+.drawer-content > div {
+  display: grid;
+  height: fit-content;
+  grid-auto-flow: row;
+  grid-gap: 10px;
+  font-family: neuzeit !important;
+}
+@media (max-width: $mobile-breakpoint) {
+  .app-header > div {
+    font-size: 16px;
+    width: 90%;
+  }
+  .app-header h1 {
+    font-size: 35px;
+  }
+  .app-header svg {
+    font-size: 30px;
+  }
+
+}

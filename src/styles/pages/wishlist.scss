@@ -1,0 +1,59 @@
+
+.wish-list {
+    grid-area: 2/2/3/3;
+    .MuiTableCell-head {
+        font-weight: 800;
+        text-align: center;
+    }
+    .MuiTableCell-body {
+        text-align: center;
+        &.item-details {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .item-price {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .item-title {
+        font-weight: bold;
+        font-size: rem(24px);
+    }
+    .remove-btn {
+        width: 70px;
+        margin: auto;
+        margin-top: 5px;
+    }
+}
+
+.wishist-ctn {
+    display: flex;
+    margin-top: rem(20px);
+    grid-area: 4/2/4/3;
+    align-items: center;
+    justify-content: space-between;
+}
+.empty-state {
+    grid-area: 2/2/3/3;
+}
+
+.cart-item-img {
+    max-width: rem(200px);
+    max-height: rem(100px);
+    object-fit: contain;
+}
+
+
+.quantity {
+    font-size: 0.875rem;
+    margin-right: rem(5px);
+}
+
+.subtotal-order {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+}
