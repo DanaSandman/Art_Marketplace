@@ -14,7 +14,7 @@ module.exports = {
     // next();
 // } זה כשרוצים לשים מידלוור לפני הריספונס יכול להיות בדיקה אם יוזר מחובר אוטנטיקציה למשל
 async function getArts(req, res) {
-    const filterBy ={}
+    const filterBy = {}
     const {_id, artistId, search, artCategory}  = req.query
         try {
         filterBy['_id'] = _id
