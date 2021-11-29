@@ -1,10 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/api/' : '/api/'
-
-// var axios = axios.create({
-//     withCredentials: true
-// })
+const BASE_URL = process.env.NODE_ENV === 'production' ? '//artour-art-marketplace.herokuapp.com/api/' : '//localhost:3030/api/'
 
 export const httpService = {
     get(endpoint, data) {
