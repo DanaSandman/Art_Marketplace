@@ -7,7 +7,7 @@ const router = express.Router()
 
 // middleware that is specific to this router
 // router.use(requireAuth) 
-
+console.log('routerrouterrouter');
 router.get('/', getArts)//LIST
 router.get('/:id', getArt)//DETAILS
 // router.post('/',  requireAuth, addArt)
