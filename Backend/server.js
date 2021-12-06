@@ -37,9 +37,9 @@ if (process.env.NODE_ENV !== 'production') {
 const artRoutes = require('./api/art/art.routes')
 const userRoutes = require('./api/user/user.routes')
 const authRoutes = require('./api/auth/auth.routes')
-app.use('/api/art/', artRoutes)
-app.use('/api/user/', userRoutes)
-app.use('/api/auth/', authRoutes)
+app.use('/api/art', artRoutes)
+app.use('/api/user', userRoutes)
+app.use('/api/auth', authRoutes)
 //If no routes get the hmnl from public
 app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
