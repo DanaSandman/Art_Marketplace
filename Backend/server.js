@@ -18,17 +18,17 @@ const session = expressSession({
 app.use(express.json())
 app.use(session)
 
-if (process.env.NODE_ENV === 'production') {
-//Route production- public to server
-    app.use(express.static('public'))
-    // app.use(express.static(path.resolve(__dirname, 'public')))
-} else {
-//Route Development- domain 8080 to server    
+if (process.env.NODE_ENV !== 'production') {
+    //Route Development- domain 8080 to server    
     const corsOptions = {
         origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
         credentials: true
     }
     app.use(cors(corsOptions))
+} else {
+    //Route production- public to server
+    app.use(express.static('public'))
+    // app.use(express.static(path.resolve(__dirname, 'public')))
 }
 // Access-Control-Allow-Origin: 'http://localhost:3000'
 
