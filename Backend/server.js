@@ -20,7 +20,8 @@ app.use(session)
 
 if (process.env.NODE_ENV === 'production') {
 //Route production- public to server
-    app.use(express.static(path.resolve(__dirname, 'public')))
+    app.use(express.static('public'))
+    // app.use(express.static(path.resolve(__dirname, 'public')))
 } else {
 //Route Development- domain 8080 to server    
     const corsOptions = {
@@ -40,7 +41,7 @@ app.use('/api/art', artRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
 //If no routes get the hmnl from public
-app.get('/', (req, res) => {
+app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
