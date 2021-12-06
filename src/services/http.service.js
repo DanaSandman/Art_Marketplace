@@ -5,7 +5,7 @@ const BASE_URL = process.env.NODE_ENV === 'production' ? '/api/' : '//localhost:
 export const httpService = {
     get(endpoint, data) {
         if (data === null){
-            data = {}
+            data = "{}"
         }
         return ajax(endpoint, 'GET', data)
     },
@@ -26,7 +26,7 @@ async function ajax(endpoint, method= 'GET', data=null) {
     console.log('method',method);
     try {
        if (method === 'GET') {
-            data = {}
+        data = "{}"
         }
         console.log(data);
         const res = await axios({
