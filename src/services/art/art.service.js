@@ -11,14 +11,11 @@ export const artService = {
 };
 //LIST
 async function loadArts(filterBy) {
+    //  return await storageService.query(STORAGE_KEY,filterBy );
  return await httpService.get('art/', filterBy);
-//  return await storageService.query(STORAGE_KEY,filterBy );
-
-// return await storageService.loadArtsWithArtists(arts); //  לא עובד לבדוק או למחוק לגמרי
 }
 //DETAILS
 async function getById(artId) {
-    console.log('front service art id', artId);
     // return await storageService.get(STORAGE_KEY, artId);
     return await httpService.get(`art/${artId}`);
 }
