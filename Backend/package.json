@@ -7,9 +7,8 @@
     "description": "production ready server",
     "main": "server.js",
     "scripts": {
-        "start": "set NODE_ENV=development && nodemon server.js",
-        "server:dev": "set NODE_ENV=development && nodemon server.js",
-        "server:prod": "node server.js"
+        "start": "node server.js",
+        "start-dev": "set NODE_ENV=development && nodemon server.js"
     },
     "author": "Me",
     "license": "ISC",
